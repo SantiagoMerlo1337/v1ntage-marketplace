@@ -11,10 +11,17 @@ const config = {
     prefix: "",
     theme: {
     	container: {
-    		center: 'true',
+    		center: true,
     		padding: '2rem',
     		screens: {
-    			'2xl': '1400px'
+				sm: "100%", // Para pantallas pequeñas
+				md: "100%", // Para pantallas medianas
+				// lg: "100%", // Para pantallas grandes
+				// xl: "100%", // Para pantallas extra grandes
+				// "2xl": "100%", // Para pantallas de 2XL, como especificaste
+				lg: "1024px", // Para pantallas grandes
+				xl: "1280px", // Para pantallas extra grandes
+				"2xl": "1400px", // Para pantallas de 2XL, como especificaste
     		}
     	},
     	extend: {
