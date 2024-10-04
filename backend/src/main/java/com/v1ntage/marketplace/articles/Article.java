@@ -1,12 +1,11 @@
 package com.v1ntage.marketplace.articles;
-import com.v1ntage.marketplace.condition.Condition;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.v1ntage.marketplace.sub_category.SubCategory;
 import com.v1ntage.marketplace.users.User;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -30,15 +29,12 @@ public class Article {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "condition_id", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "`condition`", nullable = false)
     private Condition condition;
 
     @ManyToOne
     @JoinColumn(name = "subcategory_id", nullable = false)
     private SubCategory subCategory;
-
-
-    // sub-category
 
 }

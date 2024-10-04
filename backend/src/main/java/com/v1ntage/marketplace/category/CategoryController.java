@@ -33,4 +33,9 @@ public class CategoryController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping("/{categoryId}")
+    public void deleteCategory(@PathVariable("categoryId") Integer id){
+        categoryService.delete(id);
+    }
 }

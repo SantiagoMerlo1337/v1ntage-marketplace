@@ -1,8 +1,8 @@
 package com.v1ntage.marketplace.sub_category;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.v1ntage.marketplace.articles.Article;
 import com.v1ntage.marketplace.category.Category;
-import com.v1ntage.marketplace.city.City;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -10,6 +10,7 @@ import java.util.List;
 
 @Data
 @Entity
+@Table
 public class SubCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +23,7 @@ public class SubCategory {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @OneToMany(mappedBy = "subcategory", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "subCategory", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Article> articles;
 }

@@ -1,5 +1,7 @@
 package com.v1ntage.marketplace.users;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.v1ntage.marketplace.city.City;
+import com.v1ntage.marketplace.role.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -30,6 +32,7 @@ public class User {
     @JoinColumn(name = "city_id", nullable = false)
     private City city;
 
-//    role
-
+    @ManyToOne
+    @JoinColumn(name = "role_id", nullable = false)
+    private Role role;
 }

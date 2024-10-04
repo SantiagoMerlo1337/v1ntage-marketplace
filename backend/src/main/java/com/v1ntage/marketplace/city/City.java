@@ -1,5 +1,6 @@
 package com.v1ntage.marketplace.city;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.v1ntage.marketplace.province.Province;
 import com.v1ntage.marketplace.users.User;
 import jakarta.persistence.*;
@@ -15,7 +16,7 @@ public class City {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 64)
+    @Column(length = 64, nullable = false)
     private String description;
 
     @ManyToOne
@@ -23,6 +24,7 @@ public class City {
     private Province province;
 
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<User> users;
 
 }

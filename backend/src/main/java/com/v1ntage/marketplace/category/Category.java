@@ -1,6 +1,6 @@
 package com.v1ntage.marketplace.category;
 
-import com.v1ntage.marketplace.articles.Article;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.v1ntage.marketplace.sub_category.SubCategory;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -18,5 +18,6 @@ public class Category {
     private String description;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<SubCategory> subCategories;
 }
