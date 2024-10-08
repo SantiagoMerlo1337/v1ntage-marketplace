@@ -33,14 +33,11 @@ public class UserController {
         if(user.getEmailAddress() == null || user.getEmailAddress() == "" ){
             throw new RequestException("P-500", "Email not found.");
         }
-
         boolean emailExists = userService.getAll().stream()
                 .anyMatch(existingUser -> existingUser.getEmailAddress().equals(user.getEmailAddress()));
-
         if(emailExists){
             throw new RequestException("P-500", "User with this email already exist.");
         }
-
         userService.saveOrUpdate(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
