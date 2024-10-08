@@ -38,4 +38,9 @@ public class CategoryController {
     public void deleteCategory(@PathVariable("categoryId") Integer id){
         categoryService.delete(id);
     }
+
+    @GetMapping("/{id}/subcategories")
+    public List<Category> getSubcategories(@PathVariable Integer id) {
+        return categoryService.getSubcategories(id);
+    }
 }
