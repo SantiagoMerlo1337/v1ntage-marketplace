@@ -1,6 +1,6 @@
 package com.v1ntage.marketplace.articles;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.v1ntage.marketplace.sub_category.SubCategory;
+
+import com.v1ntage.marketplace.category.Category;
 import com.v1ntage.marketplace.users.User;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -34,7 +34,7 @@ public class Article {
     private Condition condition;
 
     @ManyToOne
-    @JoinColumn(name = "subcategory_id", nullable = false)
-    private SubCategory subCategory;
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category subCategory;
 
 }
